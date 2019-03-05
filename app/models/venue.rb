@@ -1,4 +1,4 @@
 class Venue < ApplicationRecord
-   belongs_to :location
+   belongs_to :neighborhood
    has_many :events
 end
