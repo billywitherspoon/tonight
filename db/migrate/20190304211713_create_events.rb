@@ -5,7 +5,6 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.integer :line_length
       t.integer :entry_cost 
       t.datetime :start_time 
-      t.datetime :end_time
       t.references :venue, foreign_key: true
 
       t.timestamps
