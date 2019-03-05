@@ -4,4 +4,11 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show]
   resources :check_ins, only: [:index, :show, :new]
   resources :users
+
+  # Routes go in here
+  resources :users, only: [:show, :new, :index, :create]
+  root 'users#index'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/login', to: 'sessions#destroy', as: 'logout'
 end

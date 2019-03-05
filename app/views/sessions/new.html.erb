@@ -1,0 +1,7 @@
+<%= form_tag login_path, {class: 'css'} do %>
+  <div class='field'>
+    <%= label_tag :username %>
+    <%= text_field_tag :username %>
+  </div>
+  <%= submit_tag "Login", {class: 'css'} %>
+<% end %>
