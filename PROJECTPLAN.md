@@ -40,6 +40,8 @@ Stetch
 Models
 - Neighborhood 
    * `Create has_many through to events`
+- Event
+   * `Avg wait time`
 
 Views
 - Neighborhoods

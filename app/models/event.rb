@@ -4,17 +4,29 @@ class Event < ApplicationRecord
   belongs_to :venue
 
   def total_avg_wait_time
-    if get_all_wait_times.empty?
+    if all_wait_times.empty?
       "?"
     else
-      (get_all_wait_times.sum.fdiv(get_all_wait_times.size) / 5.0).round * 5
+      (all_wait_times.sum.fdiv(all_wait_times.size) / 5.0).round * 5
+    end
+  end 
+  
+  def total_avg_rating 
+    if all_ratings.empty?
+      "?"
+    else
+      all_ratings.sum.fdiv(all_ratings.size).round
     end
   end 
 
   private
 
-  def get_all_wait_times
+  def all_wait_times
     self.check_ins.map{|check_in| check_in.wait_time}
+  end 
+
+  def all_ratings 
+    self.check_ins.map{|check_in| check_in.rating}
   end 
 
 end
