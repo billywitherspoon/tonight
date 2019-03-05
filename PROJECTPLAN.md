@@ -7,19 +7,21 @@ MVP
 - A user should be able to see a list of all events
 - A user should be able to see an average rating for a single event 
 - A user should be able to see the number of attendees for a single event
-- A user should be able to see the line length for a single event 
+- A user should be able to see the wait time for a single event 
 - A user should be able to check-in to a single event
 - A user should be able to delete their check-in (check-out)
-- A user should be able to see all ratings for a single event
 - A user should be able to rate an event via check-in
-- A user should be able to report the line length during their check-in
+- A user should be able to report the wait time during their check-in
 - A user should be able to login with username and password
+- A user should be able to logout
 - A user should NOT be able to create an event, venue, neighborhood
 - A user should NOT be able to edit/update a event, venue, neighborhood
 - A user should be able to return to home on every page
 
 Stetch
 
+- A user should be able to see a visualization of popularity of a model by day
+- A user should be able to see all ratings for a single event
 - A user should be able to see all users
 - A user should be able to follow an event 
 - A user should be able to see an average rating for a single event within a specified time period 
@@ -33,6 +35,7 @@ Stetch
 Models
 - Neighborhood 
    * `Create has_many through to events`
+
 Views
 - Neighborhoods
    - Index
@@ -56,6 +59,7 @@ Views
       * Average rating
       * Venue
       * Number of users (attendees)
+      * All ratings
       * Show Wait time
       * Show Start time
       * Submit check in button
@@ -63,6 +67,7 @@ Views
 - Users
    - Show 
       * Current event
+      * Check out link button
       * Check out button
       * Past events
 - Check In
@@ -73,18 +78,24 @@ Views
       * Form
          * Rating
          * Wait time
-
-
-      
-
-
-
+   - 
 
 Controllers
 - 
 
+Routes
+- 
+
 CSS
 - 
+
+Migrations
+- Event
+   * Remove column 'line_length'
+
+Seeds 
+- Event
+   * Remove line_length attribute seed
 
 
 
