@@ -30,7 +30,6 @@ end
    Event.create(
       name: Faker::Internet.domain_word,
       venue: Venue.all.sample,
-      line_length: rand(0..50),
       entry_cost: rand(0..50),
       start_time: Faker::Time.forward(1, :evening)
    )
