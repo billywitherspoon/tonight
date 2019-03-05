@@ -42,6 +42,8 @@ Models
    * `Create has_many through to events`
 - Event
    * `Avg wait time`
+   * `Avg rating`
+   * `Simplified start time`
 
 Views
 - Neighborhoods
@@ -57,7 +59,7 @@ Views
          * Average rating
          * Venue
          * Number of users (attendees)
-         * Wait time
+         * Avg Wait time
          * Start time
       * More info button for each event (link to event show)
       * Check_in button for each event (link to check in new)

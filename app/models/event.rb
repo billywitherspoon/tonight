@@ -3,6 +3,10 @@ class Event < ApplicationRecord
   has_many :users, through: :check_ins
   belongs_to :venue
 
+  def simple_start_time 
+    self.start_time.strftime("%H:%M").sub!(/^[0]+/,'')
+  end 
+
   def total_avg_wait_time
     if all_wait_times.empty?
       "?"
