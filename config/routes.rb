@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   resources :users
 
   # Routes go in here
-  resources :users, only: [:show, :new, :index, :create]
-  root 'users#index'
-  get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
-  delete '/login', to: 'sessions#destroy', as: 'logout'
+  # resources :users, only: [:show, :new, :index, :create]
+  # root 'users#index'
+  # get '/login', to: 'sessions#new'
+  # post '/login', to: 'sessions#create'
+  # delete '/login', to: 'sessions#destroy', as: :logout
 end

@@ -15,8 +15,6 @@ ActiveRecord::Schema.define(version: 2019_03_05_194659) do
   create_table "check_ins", force: :cascade do |t|
     t.integer "user_id"
     t.integer "event_id"
-    t.integer "rating"
-    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_check_ins_on_event_id"
@@ -25,8 +23,6 @@ ActiveRecord::Schema.define(version: 2019_03_05_194659) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
-    t.integer "entry_cost"
-    t.datetime "start_time"
     t.integer "venue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -42,20 +38,16 @@ ActiveRecord::Schema.define(version: 2019_03_05_194659) do
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "email"
-    t.string "password"
-    t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "venues", force: :cascade do |t|
     t.string "name"
-    t.integer "neighborhood_id"
-    t.integer "capacity"
+    t.integer "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["neighborhood_id"], name: "index_venues_on_neighborhood_id"
+    t.index ["location_id"], name: "index_venues_on_location_id"
   end
 
 end

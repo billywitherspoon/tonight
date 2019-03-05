@@ -1,3 +1,8 @@
+<% if @message %>
+  <%# edit %>
+<% else %>
+  <%# edit %>
+<% end %>
 <%= form_tag login_path, {class: 'css'} do %>
   <div class='field'>
     <%= label_tag :username %>

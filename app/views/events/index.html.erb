@@ -1,5 +1,17 @@
-<% @events.each do |event| %>
-<ul>
-   <li><%= event.name %>  </li>
-</ul>
-<% end %>
+<div class="container center_all">
+  <div class="center_v_column">
+    <h1>Events List</h1>
+    <ul name="events_list">
+      <% 10.times do %>
+        <li>
+          <div class="event_list_widget">
+            <div class="center_all event_wait make_square">
+              <div class="child">5</div>
+            </div>
+            Lorem Ipsum
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
