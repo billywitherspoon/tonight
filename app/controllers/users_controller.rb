@@ -5,8 +5,13 @@ class UsersController < ApplicationController
       @users = User.all
    end 
 
-   def new 
-      @user = User.new 
+   def new
+    unless logged_in?
+      flash[:message] = "Incorrect Username"
+      redirect_to login_path
+    else
+      @user = User.new
+    end
    end 
 
    def create 
