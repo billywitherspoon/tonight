@@ -32,7 +32,7 @@ Stetch
 
 Models
 - Neighborhood 
-   1. Create has_many through to events
+   * Create has_many through to events
 - 
 
 Views
