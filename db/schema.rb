@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_05_194659) do
+ActiveRecord::Schema.define(version: 2019_03_05_210358) do
 
   create_table "check_ins", force: :cascade do |t|
     t.integer "user_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_194659) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "wait_time"
     t.index ["event_id"], name: "index_check_ins_on_event_id"
     t.index ["user_id"], name: "index_check_ins_on_user_id"
   end

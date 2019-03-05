@@ -94,6 +94,11 @@ Views
       * Venue name
       * Venue capacity
       * Event names for that venue (link to event show)
+- Sessions
+   - New
+      * Create new session view page
+      * Build new user form
+      * Build flash message
 
 Controllers
 - Neighborhoods
@@ -109,9 +114,15 @@ Controllers
 - Venues
    - Index 
    - Show
+- Session
+   * Create session controller 
+
+
 
 Routes
-- 
+* `Enable all routes for all models`
+* Restrict routes after routing configuration finalized
+* Build custom session routes
 
 CSS
 - 
@@ -119,10 +130,14 @@ CSS
 Migrations
 - Event
    * `Remove column 'line_length'`
+- Check In
+   * `Add column wait_time`
 
 Seeds 
 - Event
    * `Remove line_length attribute seed`
+- Check In
+   * `Add wait_time seed`
 
 
 
