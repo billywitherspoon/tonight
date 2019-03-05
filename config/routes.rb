@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  resources :venues
-  resources :locations
-  resources :events
-  resources :check_ins
+  resources :venues, only: [:index, :show]
+  resources :neighborhoods, only: [:index, :show]
+  resources :events, only: [:index, :show]
+  resources :check_ins, only: [:index, :show, :new]
   resources :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
