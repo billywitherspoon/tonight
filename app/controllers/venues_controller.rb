@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-#delete this
-=======
 class VenuesController < ApplicationController
      before_action :set_venue, only: [:edit, :update, :show]
      
@@ -34,4 +31,3 @@ class VenuesController < ApplicationController
         params.require(:venue).permit(:name, :id)
      end
 end
->>>>>>> 1ad62bfaebd8a41ce4c7ea03dd8dba12e5086965

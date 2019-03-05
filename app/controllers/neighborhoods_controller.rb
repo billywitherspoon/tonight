@@ -1,4 +1,4 @@
-class NeighborhoodController < ApplicationController
+class NeighborhoodsController < ApplicationController
      before_action :set_neighborhood, only: [:edit, :update, :show]
      
      def index 
