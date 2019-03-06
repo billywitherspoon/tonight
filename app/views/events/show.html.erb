@@ -1,3 +1,7 @@
-<%= @event.name %> show page
-
-<%= link_to  "Check in to this event", user_check_in_path(event_id: @event.id), method: :post  %>
+<h1><%= @event.name.titleize %></h1>
+<p><%= link_to  @event.venue.name.titleize, @event.venue %> </p>
+<p>Current rating: <%= @event.total_avg_rating %> star</p>
+<p>Current Wait Time: <%= @event.total_avg_wait_time %></p>
+<p>Number of Users Checked in: <%= @event.num_users_checked_in %></p>
+<p>Start Time: <%= @event.simple_start_time %></p>
+<p><%= link_to  "Check in to this event", user_check_in_path(event_id: @event.id), method: :post  %></p>
