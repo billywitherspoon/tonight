@@ -44,6 +44,9 @@ Models
    * `Avg wait time`
    * `Avg rating`
    * `Simplified start time`
+- User 
+   * Add validation no same e-mail
+   * Add phone_number custom validation, remove special characters from phone number and check vs 9 characters
 
 Views
 - Neighborhoods
@@ -113,6 +116,10 @@ Controllers
    - Show
 - Users 
    - Show
+   - New
+      * Form for create user and login/password
+      * Probably need strong params
+      * Need .new placeholder
 - CheckIns
    - New
 - Venues
@@ -123,7 +130,7 @@ Controllers
 
 
 
-Routes
+Route
 * `Enable all routes for all models`
 * Restrict routes after routing configuration finalized
 * Build custom session routes
@@ -136,6 +143,9 @@ Migrations
    * `Remove column 'line_length'`
 - Check In
    * `Add column wait_time`
+- User 
+   * `Remove password`
+   * `Add password digest`
 
 Seeds 
 - Event
