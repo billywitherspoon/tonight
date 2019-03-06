@@ -28,7 +28,7 @@ end
 #create 10 events (faker nebulas)
 30.times do
    Event.create(
-      name: Faker::Internet.domain_word,
+      name: Faker::App.name,
       venue: Venue.all.sample,
       entry_cost: rand(0..50),
       start_time: Faker::Time.forward(1, :evening)

@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   belongs_to :venue
 
   def simple_start_time 
-    self.start_time.strftime("%H:%M").sub!(/^[0]+/,'')
+    self.start_time.strftime("%H:%M").sub!(/^[0]+/,'') + " P.M."
   end 
 
   def total_avg_wait_time
@@ -22,6 +22,10 @@ class Event < ApplicationRecord
       all_ratings.sum.fdiv(all_ratings.size).round
     end
   end 
+
+  def num_users_checked_in
+    self.users.count
+  end
 
   private
 

@@ -57,18 +57,17 @@ Views
       * List of events for the neighborhood
 - Events
    - Index 
-      * List of events 
       * Add attribute for each event:
-         * Event name
+         * `Event name`
          * Average rating
          * Venue
          * Number of users (attendees)
-         * Avg Wait time
+         * `Avg Wait time`
          * Start time
-      * More info button for each event (link to event show)
-      * Check_in button for each event (link to check in new)
+         * Check_in button for each event (link to check in new)
+         * More info button for each event (link to event show)
       * Default sort events by attendees
-   - Show (Confirmation)
+   - Show 
       * Event name
       * Average rating
       * Venue
@@ -76,8 +75,7 @@ Views
       * All ratings
       * Show Wait time
       * Show Start time
-      * Submit check in button
-      * Cancel check in button
+      * Submit check in button (link to check in new page)
 - Users
    - Show 
       * Current event
@@ -95,17 +93,17 @@ Views
          * Submit button
       * Cancel button (link to events page)
 - Venues
-   - Index
+   <!-- - Index
       * Venue name (link to venue show)
-      * Venue capacity
+      * Venue capacity -->
    - Show 
       * Venue name
       * Venue capacity
       * Event names for that venue (link to event show)
 - Sessions
    - New
-      * Create new session view page
-      * Build new user form
+      * `Create new session view page`
+      * `Build new user form`
       * Build flash message
 
 Controllers
