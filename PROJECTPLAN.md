@@ -42,6 +42,12 @@ Models
    * `Create has_many through to events`
 - Event
    * `Avg wait time`
+   * `Avg rating`
+   * `Simplified start time`
+- User 
+   * `Add validation no same e-mail`
+   * Add phone_number custom validation, remove special characters from phone number and check vs 9 characters
+   * Add e-mail custom validation, must contain character @
 
 Views
 - Neighborhoods
@@ -57,7 +63,7 @@ Views
          * Average rating
          * Venue
          * Number of users (attendees)
-         * Wait time
+         * Avg Wait time
          * Start time
       * More info button for each event (link to event show)
       * Check_in button for each event (link to check in new)
@@ -111,6 +117,10 @@ Controllers
    - Show
 - Users 
    - Show
+   - New
+      * Form for create user and login/password
+      * Probably need strong params
+      * Need .new placeholder
 - CheckIns
    - New
 - Venues
@@ -121,7 +131,7 @@ Controllers
 
 
 
-Routes
+Route
 * `Enable all routes for all models`
 * Restrict routes after routing configuration finalized
 * Build custom session routes
@@ -134,6 +144,9 @@ Migrations
    * `Remove column 'line_length'`
 - Check In
    * `Add column wait_time`
+- User 
+   * `Remove password`
+   * `Add password digest`
 
 Seeds 
 - Event
