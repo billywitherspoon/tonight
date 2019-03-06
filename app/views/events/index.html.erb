@@ -1,15 +1,32 @@
-<div class="container center_all">
+<div class="container center_all make_full_size">
   <div class="center_v_column">
-    <h1>Events List</h1>
-    <ul name="events_list">
-      <% 10.times do %>
+    <ul>
+      <% 10.times do |event| %>
         <li>
-          <div class="event_list_widget">
-            <div class="center_all event_wait make_square">
-              <div class="child">5</div>
-            </div>
-            Lorem Ipsum
-          </div>
+          <div class="event_list_widget child allow_respond_width"><!-- main container of widget -->
+            <div class="container"><!-- top half of the widget -->
+
+              <div class="event_wait child center_all make_square"><!-- left-hand square minute display -->
+                <p class="child minute_display">5:00</p>
+              </div><!-- end minute display -->
+
+              <div><!-- right-hand event title -->
+                <p class="event_title">Test Event Name</p><br />
+                <p>Some example text about this event</p>
+              </div><!-- end event title -->
+            </div><!-- end top half of widget -->
+
+            <div class="container"><!-- bottom half of widget -->
+
+              <div><!-- left-hand side -->
+              </div><!-- end left-hand side -->
+
+              <div><!-- right-hand check-in button -->
+                <i class="far fa-check-circle fa-3x"></i>
+              </div><!-- end check-in button -->
+
+            </div><!-- end bottom half of widget -->
+          </div><!-- end main container of widget -->
         </li>
       <% end %>
     </ul>
