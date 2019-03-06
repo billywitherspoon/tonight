@@ -22,7 +22,9 @@ class UsersController < ApplicationController
          session[:user_id] = user.id
          redirect_to users_path
       else
-         flash[:message] = 'Nice try, buddy'
+         #remove this errors later
+         flash[:errors] = user.errors
+         # flash[:message] = 'Could not create new user'
          redirect_to new_user_path
       end
    end 

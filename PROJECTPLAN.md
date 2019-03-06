@@ -45,8 +45,9 @@ Models
    * `Avg rating`
    * `Simplified start time`
 - User 
-   * Add validation no same e-mail
+   * `Add validation no same e-mail`
    * Add phone_number custom validation, remove special characters from phone number and check vs 9 characters
+   * Add e-mail custom validation, must contain character @
 
 Views
 - Neighborhoods

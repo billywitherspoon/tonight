@@ -1,23 +1,23 @@
 <h1>New User Sign Up</h1>
 
-<% if flash[:message] %>
+<% if flash[:errors] %>
   <p>
-    <%= flash[:message] %>
+    <%= flash[:errors] %>
   </p>
 <% end %>
 
 <%= form_for @user do |f| %> 
-   <%= f.label :first_name %>
-   <%= f.text_field :first_name %>
-   <%= f.label :last_name %>
-   <%= f.text_field :last_name %>
-   <%= f.label :phone_number %>
-   <%= f.text_field :phone_number %>
-   <%= f.label :email %>
-   <%= f.text_field :email %>
-   <%= f.label :password %>
-   <%= f.password_field :password %>
-   <%= f.label :password_confirmation %>
-   <%= f.password_field :password_confirmation %>
+   <p><%= f.label :first_name %>
+   <%= f.text_field :first_name, placeholder: 'Joe' %></p>
+   <p><%= f.label :last_name %>
+   <%= f.text_field :last_name, placeholder: 'Smith' %></p>
+   <p><%= f.label :phone_number %>
+   <%= f.text_field :phone_number, placeholder: 'xxx-xxx-xxxx' %></p>
+   <p><%= f.label :email %>
+   <%= f.text_field :email, placeholder: 'example@example.com' %></p>
+   <p><%= f.label :password %>
+   <%= f.password_field :password, placeholder: 'Password' %></p>
+   <p><%= f.label :password_confirmation, "Re-Enter Password" %>
+   <%= f.password_field :password_confirmation, placeholder: 'Password' %></p>
   <%= f.submit 'Create User'%>
 <% end %>
