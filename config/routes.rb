@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   resources :venues
   resources :neighborhoods
   resources :events
-  # resources :check_ins
+  resources :check_ins, only: [:create, :edit, :update, :delete, :show, :index]
   resources :users
-  resources :sessions
+  resources :sessions 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/login', to: 'sessions#destroy', as: :logout

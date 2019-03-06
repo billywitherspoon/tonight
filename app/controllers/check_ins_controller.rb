@@ -30,7 +30,7 @@ class CheckInsController < ApplicationController
       @check_in = CheckIn.find(params[:id])
    end
 
-   def check_in_params 
-      params.require(:event).permit(:id)
-   end
+   # def check_in_params 
+   #    params.require(:event_id)
+   # end
 end
