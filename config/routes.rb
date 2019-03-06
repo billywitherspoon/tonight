@@ -2,13 +2,13 @@ Rails.application.routes.draw do
   resources :venues
   resources :neighborhoods
   resources :events
-  #resources :check_ins, only: [:create, :edit, :update, :delete, :show, :index]
   resources :users
   resources :sessions 
+  resources :check_ins, only: [:create]
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/login', to: 'sessions#destroy', as: :logout
-  post '/check_ins', to: 'check_ins#new', as: :user_check_in
+  post '/user_check_in', to: 'check_ins#new'#, as: :user_check_in
 
 end
 

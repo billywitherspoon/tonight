@@ -4,7 +4,7 @@
     <p class="title">New User Sign Up</p>
     <% if flash[:errors] %>
       <div class="notification is-warning">
-          This error needs to be changed
+          <%= flash[:errors] %>
       </div>
     <% end %>
     <%= form_for @user do |f| %>

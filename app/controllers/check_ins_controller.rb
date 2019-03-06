@@ -7,12 +7,24 @@ class CheckInsController < ApplicationController
    end 
 
    def new 
-      @event = Event.find(params["event_id"])
+      @event = Event.find(params[:event_id])
       @user = User.find(session[:user_id])
       @check_in = CheckIn.new 
+      @rating_array = (1..5).to_a
    end 
 
    def create 
+      check_in = CheckIn.new(check_in_params)
+      if check_in.valid?
+         check_in.save
+         session[:current_event_id] = check_in.event.id
+         redirect_to events_path
+      else
+         #remove this errors later
+         flash[:errors] = user.errors
+         # flash[:message] = 'Could not create new user'
+         render new_check_in_path
+      end
    end 
 
    def show 
@@ -30,7 +42,8 @@ class CheckInsController < ApplicationController
       @check_in = CheckIn.find(params[:id])
    end
 
-   # def check_in_params 
-   #    params.require(:event_id)
-   # end
+   def check_in_params 
+      params.require(:check_in).permit(:rating, :wait_time, :comment, :user_id, :event_id)
+   end
+
 end
