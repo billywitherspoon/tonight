@@ -1,1 +1,3 @@
 <%= @event.name %> show page
+
+<%= link_to  "Check in to this event", user_check_in_path(event_id: @event.id), method: :post  %>
