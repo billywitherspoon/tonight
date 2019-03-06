@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :events
   #resources :check_ins, only: [:create, :edit, :update, :delete, :show, :index]
   resources :users
-  resources :sessions 
+  resources :sessions
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/login', to: 'sessions#destroy', as: :logout

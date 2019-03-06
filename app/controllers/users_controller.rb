@@ -15,7 +15,7 @@ class UsersController < ApplicationController
    #  end
    end 
 
-   def create 
+   def create
       user = User.new(user_params)
       if user.valid?
          user.save
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
          #remove this errors later
          flash[:errors] = user.errors
          # flash[:message] = 'Could not create new user'
-         redirect_to new_user_path
+         redirect_to events_path
       end
    end 
 
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
    private 
 
    def set_user
-      @user = User.find(params[:id])
+      @user = User.find(params[:user_id])
    end
 
    def user_params 
