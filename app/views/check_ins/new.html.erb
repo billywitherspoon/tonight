@@ -1,4 +1,28 @@
-<%= @event.name %> Check In Pages
+<p>Check in to <%= @event.name.titleize  %> </p>
+<% if flash[:errors] %>
+<div class="notification is-warning">
+    <%= flash[:errors] %>
+</div>
+<% end %>
+<%= form_for @check_in do |f| %>
+   <p>
+      <%= f.label :rating, "Rating" %>
+      <%= f.collection_select :rating, @rating_array, :to_s, :to_s  %>
+   </p>
+   <p>
+      <%= f.label :wait_time, "How many minutes did you wait in line?" %>
+      <%=  f.text_field :wait_time %>
+   </p>
+   <p>
+      <%= f.label :comment, "Comments:" %>
+      <%= f.text_area :comment %>
+   </p>
+   <%= f.hidden_field :user_id, value: @user.id %>
+
+   <%= f.hidden_field :event_id, value: @event.id %>
 
 
-
+   <p>
+      <%= f.submit %>
+   </p>
+<% end %>

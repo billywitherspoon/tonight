@@ -68,15 +68,15 @@ Views
          * More info button for each event (link to event show)
       * Default sort events by attendees
    - Show 
-      * Event name
-      * Average rating
-      * Venue
-      * Number of users (attendees)
-      * All ratings
-      * Show Wait time
-      * Show Start time
-      * Submit check in button (link to check in new page)
-- Users
+      * `Event name`
+      * `Average rating`
+      * `Venue`
+      * `Number of users (attendees)`
+      *  All ratings
+      * `Wait time`
+      * `Start time`
+      * `Submit check in button (link to check in new page)`
+- Users`
    - Show 
       * Current event
       * Check out link button

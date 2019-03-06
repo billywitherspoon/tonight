@@ -9,7 +9,11 @@
           <div class="level-left has-text-centered">
             <div class="box avg_wait_time">
               <p class="heading">Avg. Wait</p>
-              <p class="title"><%= event.total_avg_wait_time %></p>
+              <p class="title">
+                <%= event.total_avg_wait_time %>
+                <br>
+                <span class="heading">min</span>
+              </p>
             </div>
           </div>
 
@@ -23,7 +27,8 @@
           <div class="level-right has-text-centered">
             <div>
               <p class="heading">Attend</p>
-              <p><button class="button is-primary is-outlined">Check In</button></p>
+              <!-- <p><button class="button is-primary is-outlined">Check In</button></p> -->
+              <p><%= link_to  "Check in to this event", user_check_in_path(event_id: event.id), method: :post, class: "button is-primary is-outlined"%></p>
             </div>
           </div>
         </nav>
