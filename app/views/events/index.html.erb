@@ -1,22 +1,26 @@
 <div class="container center_all make_full_size">
   <div class="center_v_column">
     <ul>
-      <% 10.times do |event| %>
+      <% @events.each do |event| %>
         <li>
           <div class="event_list_widget child allow_respond_width"><!-- main container of widget -->
             <div class="container"><!-- top half of the widget -->
 
               <div class="event_wait child center_all make_square"><!-- left-hand square minute display -->
-                <p class="child minute_display">5:00</p>
+                <p class="child minute_display">
+                  <%= event.total_avg_wait_time %>
+                </p>
               </div><!-- end minute display -->
 
               <div><!-- right-hand event title -->
-                <p class="event_title">Test Event Name</p><br />
-                <p>Some example text about this event</p>
+                <p>
+                  <span class="event_title"><%= event.name %></span><br />
+                  <span class="event_venue"><%= event.venue.name %></span><br />
+                </p>
               </div><!-- end event title -->
             </div><!-- end top half of widget -->
 
-            <div class="container"><!-- bottom half of widget -->
+            <div><!-- bottom half of widget -->
 
               <div><!-- left-hand side -->
               </div><!-- end left-hand side -->
