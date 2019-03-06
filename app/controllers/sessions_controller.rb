@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
   
+  def new 
+  end 
+
   def create
     user = User.find_by(username: params[:username])
     unless user
@@ -9,6 +12,11 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to students_path
     end
+  end
+
+  def delete 
+    session.clear
+    redirect_to login_path
   end
 
   # def destroy

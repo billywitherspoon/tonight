@@ -46,8 +46,8 @@ Models
    * `Simplified start time`
 - User 
    * `Add validation no same e-mail`
-   * Add phone_number custom validation, remove special characters from phone number and check vs 9 characters
-   * Add e-mail custom validation, must contain character @
+   * `Add phone_number custom validation, remove special characters from phone number and check vs 9 characters`
+   * `Add e-mail custom validation, must contain character @`
 
 Views
 - Neighborhoods
@@ -118,16 +118,16 @@ Controllers
 - Users 
    - Show
    - New
-      * Form for create user and login/password
-      * Probably need strong params
-      * Need .new placeholder
+      * `Form for create user and login/password`
+      * `Probably need strong params`
+      * `Need .new placeholder`
 - CheckIns
    - New
 - Venues
    - Index 
    - Show
 - Session
-   * Create session controller 
+   * `Create session controller`
 
 
 

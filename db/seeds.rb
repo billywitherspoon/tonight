@@ -1,5 +1,5 @@
 #create 10 users (faker names)
-10.times do
+20.times do
   User.create(
      first_name: Faker::Name.first_name,
      last_name: Faker::Name.last_name,
@@ -17,7 +17,7 @@ end
 end 
 
 #create 10 venues (faker companies)
-10.times do
+20.times do
    Venue.create(
       name: Faker::Company.name,
       neighborhood: Neighborhood.all.sample,
@@ -26,7 +26,7 @@ end
 end 
 
 #create 10 events (faker nebulas)
-10.times do
+30.times do
    Event.create(
       name: Faker::Internet.domain_word,
       venue: Venue.all.sample,
@@ -37,7 +37,7 @@ end
 
 #create 3 checkins for each user
 User.all.each do |user| 
-   3.times do
+   7.times do
       CheckIn.create(
          user: user,
          event: Event.all.sample,

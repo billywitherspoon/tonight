@@ -1,11 +1,14 @@
 class CheckInsController < ApplicationController
    before_action :set_check_in, only: [:edit, :update, :show]
+
    
    def index 
       @check_ins = CheckIn.all
    end 
 
    def new 
+      @event = Event.find(params["event_id"])
+      @user = User.find(session[:user_id])
       @check_in = CheckIn.new 
    end 
 
@@ -28,6 +31,6 @@ class CheckInsController < ApplicationController
    end
 
    def check_in_params 
-      params.require(:check_in).permit(:name, :id)
+      params.require(:event).permit(:id)
    end
 end
