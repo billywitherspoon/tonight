@@ -1,38 +1,36 @@
-<div class="container center_all make_full_size">
-  <div class="center_v_column">
-    <ul>
+<div class="hero">
+  <div class="hero-head">
+    <p class="title has-text-centered">Trending Events</p>
+  </div>
+  <div class="hero-body">
+    <div id="events_index_list" class="box">
       <% @events.each do |event| %>
-        <li>
-          <div class="event_list_widget child allow_respond_width"><!-- main container of widget -->
-            <div class="container"><!-- top half of the widget -->
+        <nav class="level is-outlined">
+          <div class="level-left has-text-centered">
+            <div class="box avg_wait_time">
+              <p class="heading">Avg. Wait</p>
+              <p class="title"><%= event.total_avg_wait_time %></p>
+            </div>
+          </div>
 
-              <div class="event_wait child center_all make_square"><!-- left-hand square minute display -->
-                <p class="child minute_display">
-                  <%= event.total_avg_wait_time %>
-                </p>
-              </div><!-- end minute display -->
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Event</p>
+              <p class="title"><%= event.name %></p>
+            </div>
+          </div>
 
-              <div><!-- right-hand event title -->
-                <p>
-                  <span class="event_title"><%= event.name %></span><br />
-                  <span class="event_venue"><%= event.venue.name %></span><br />
-                </p>
-              </div><!-- end event title -->
-            </div><!-- end top half of widget -->
-
-            <div><!-- bottom half of widget -->
-
-              <div><!-- left-hand side -->
-              </div><!-- end left-hand side -->
-
-              <div><!-- right-hand check-in button -->
-                <i class="far fa-check-circle fa-3x"></i>
-              </div><!-- end check-in button -->
-
-            </div><!-- end bottom half of widget -->
-          </div><!-- end main container of widget -->
-        </li>
+          <div class="level-right has-text-centered">
+            <div>
+              <p class="heading">Attend</p>
+              <p><button class="button is-primary is-outlined">Check In</button></p>
+            </div>
+          </div>
+        </nav>
       <% end %>
-    </ul>
+    </div>
+  </div>
+  <div class="hero-foot">
+    <p class="header has-text-centered">I don't know what to put here</p>
   </div>
 </div>
