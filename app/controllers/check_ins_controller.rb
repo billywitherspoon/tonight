@@ -2,6 +2,7 @@ class CheckInsController < ApplicationController
    before_action :set_check_in, only: [:edit, :update, :show]
    before_action :set_user, only: [:new, :create, :destroy]
    before_action :set_event, only: [:new]
+   before_action :logged_in?
 
    def index 
       @check_ins = CheckIn.all
@@ -39,6 +40,7 @@ class CheckInsController < ApplicationController
    end 
 
    def destroy
+
       @user.check_out
       redirect_to user_path(@user)
    end 

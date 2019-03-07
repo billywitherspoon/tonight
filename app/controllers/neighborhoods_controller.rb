@@ -1,6 +1,7 @@
 class NeighborhoodsController < ApplicationController
      before_action :set_neighborhood, only: [:edit, :update, :show]
-     
+     before_action :logged_in?
+
      def index 
         @neighborhoods = Neighborhood.all
      end 

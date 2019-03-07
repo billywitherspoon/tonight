@@ -10,23 +10,30 @@
 end
 
 #create 10 neighborhoods (faker countries)
-10.times do
-   Neighborhood.create(
-      name: Faker::TvShows::GameOfThrones.city
-   )
-end 
+Neighborhood.create(name: "Ballard")
+Neighborhood.create(name: "West Seattle")
+Neighborhood.create(name: "Downtown Seattle")
+Neighborhood.create(name: "Capitol Hill")
+Neighborhood.create(name: "Queen Anne")
+Neighborhood.create(name: "Lake City")
+Neighborhood.create(name: "University District")
+Neighborhood.create(name: "Wallingford")
+Neighborhood.create(name: "Shoreline")
+
 
 #create 10 venues (faker companies)
-20.times do
-   Venue.create(
-      name: Faker::Company.name,
-      neighborhood: Neighborhood.all.sample,
-      capacity: rand(100..250)
+30.times do
+   venue = Venue.find_or_create_by(
+      name: Faker::TvShows::Friends.location
+   )
+   venue.update(
+   neighborhood: Neighborhood.all.sample,
+   capacity: rand(50..200)
    )
 end 
 
 #create 10 events (faker nebulas)
-30.times do
+50.times do
    Event.create(
       name: Faker::App.name,
       venue: Venue.all.sample,

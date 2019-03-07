@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-  helper_method :logged_in?
   before_action :set_current_user
+  helper_method :logged_in?
   
   def set_current_user
     # If you use find_by, application doesn't completely crash with error
@@ -8,6 +8,9 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    !!@current_user
+    if !@current_user
+      redirect_to login_path
+    end
   end
+
 end
