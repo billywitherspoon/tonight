@@ -21,6 +21,9 @@ class User < ApplicationRecord
   end
   
   def check_out
-    self.check_ins.last.active = 0 if self.check_ins.last
+    # we can try a try here
+    # self.check_ins.last.try(:update) {
+    #}
+    self.check_ins.last.update(active: false) if !self.check_ins.empty?
   end
 end

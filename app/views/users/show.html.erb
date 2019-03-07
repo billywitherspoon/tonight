@@ -33,7 +33,7 @@
             <%= link_to "Rate", check_in.event, class: "button card-footer-item is-primary is-outlined"%>
             <%= link_to "Browse", events_path, class: "button card-footer-item is-info is-outlined"%>
             <% if check_in.active %>
-              <%= link_to "Check Out", user_check_out_path, method: :delete, class: "button card-footer-item is-danger is-outlined"%>
+              <%= link_to "Check Out", user_check_out_path(check_in), method: :delete, class: "button card-footer-item is-danger is-outlined"%>
             <% else %>
               <span class="card-footer-item"><%= "#{' '}" %></span>
             <% end %>
