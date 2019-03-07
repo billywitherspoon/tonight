@@ -60,7 +60,7 @@ Views
    - Index 
       * Add attribute for each event:
          * `Event name`
-         * Average rating
+         * `Average rating`
          * Venue
          * `Avg Wait time`
          * Start time

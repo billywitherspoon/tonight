@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   has_many :check_ins
   has_many :users, through: :check_ins
   belongs_to :venue
+  has_one :neighborhood, through: :venue
 
   def simple_start_time 
     self.start_time.strftime("%H:%M").sub!(/^[0]+/,'') + " P.M."
