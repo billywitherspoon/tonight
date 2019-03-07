@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  
+
   def new
     # leave empty
   end 
@@ -20,15 +20,10 @@ class SessionsController < ApplicationController
     end
   end
 
-  def delete 
+  def destroy 
     session.clear
     redirect_to login_path
   end
-
-  # def destroy
-  #   session.clear
-  #   redirect_to students_path
-  # end
 
   private
 

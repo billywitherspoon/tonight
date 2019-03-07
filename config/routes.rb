@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete '/login', to: 'sessions#destroy', as: :logout
   post '/user_check_in', to: 'check_ins#new'
   delete '/user_check_out', to: 'check_ins#destroy'
+  delete '/logout', to: 'sessions#destroy'
 end
 
 # resources :students, only: [:show, :new, :index, :create]
