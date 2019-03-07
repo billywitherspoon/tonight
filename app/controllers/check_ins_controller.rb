@@ -50,7 +50,7 @@ class CheckInsController < ApplicationController
    end
 
    def check_in_params 
-      params.require(:check_in).permit(:rating, :wait_time, :comment, :user_id, :event_id)
+      params.require(:check_in).permit(:rating, :wait_time, :comment, :user_id, :event_id, :active)
    end
 
    def set_user
