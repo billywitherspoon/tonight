@@ -1,30 +1,31 @@
 class CheckInsController < ApplicationController
    before_action :set_check_in, only: [:edit, :update, :show]
+   before_action :set_user, only: [:new, :create, :delete]
+   before_action :set_event, only: [:new]
 
-   
    def index 
       @check_ins = CheckIn.all
    end 
 
    def new 
-      @event = Event.find(params[:event_id])
-      @user = User.find(session[:user_id])
       @check_in = CheckIn.new 
       @rating_array = (1..5).to_a.reverse
       @wait_time_array = (0..60).to_a.select{|i| i % 5 == 0}
    end 
 
    def create 
+      @user.check_out
       check_in = CheckIn.new(check_in_params)
+      event = Event.find(check_in_params[:event_id])
       if check_in.valid?
          check_in.save
-         session[:current_event_id] = check_in.event.id
-         redirect_to events_path
+         flash[:notice] = "You've checked in to " + event.name.titleize
+         redirect_to event_path(event.id)
       else
          #remove this errors later
          flash[:errors] = check_in.errors
          # flash[:message] = 'Could not create new user'
-         redirect_to new_check_in_path(event_id: check_in_params[:event_id])
+         redirect_to new_check_in_path(event_id: event.id)
       end
    end 
 
@@ -37,6 +38,10 @@ class CheckInsController < ApplicationController
    def edit 
    end 
 
+   def delete 
+      @user.check_out
+   end 
+
    private 
 
    def set_check_in
@@ -45,6 +50,14 @@ class CheckInsController < ApplicationController
 
    def check_in_params 
       params.require(:check_in).permit(:rating, :wait_time, :comment, :user_id, :event_id)
+   end
+
+   def set_user
+      @user = User.find(session[:user_id])
+   end
+
+   def set_event
+      @event = Event.find(params[:event_id])
    end
 
 end

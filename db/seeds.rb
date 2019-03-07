@@ -43,7 +43,9 @@ User.all.each do |user|
          event: Event.all.sample,
          rating: rand(1..5),
          comment: Faker::Hipster.paragraph,
-         wait_time: rand(0..50)
+         wait_time: rand(0..50),
+         active: 0
       )
    end
+   user.check_ins.last.active = 1
 end 

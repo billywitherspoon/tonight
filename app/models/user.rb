@@ -15,4 +15,12 @@ class User < ApplicationRecord
   def full_name
     self.first_name.titleize + " " + self.last_name.titleize
   end
+
+  def most_recent_event
+    self.check_ins.last.event
+  end
+  
+  def check_out
+    self.check_ins.last.active = 0 if self.check_ins.last
+  end
 end

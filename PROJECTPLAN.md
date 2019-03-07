@@ -76,6 +76,7 @@ Views
       * `Wait time`
       * `Start time`
       * `Submit check in button (link to check in new page)`
+      * Only show button if not checked_in
 - Users`
    - Show 
       * Current event
@@ -84,13 +85,14 @@ Views
       * Past events
 - CheckIns
    - New
-      * Event name
-      * Venue
-      * Start time
-      * Form (check_in create)
-         * Rating
-         * Wait time
-         * Submit button
+      * `Event name`
+      * `Venue`
+      * `Start time`
+      * `Form (check_in create)`
+         * `Rating`
+         * `Wait time`
+         * `Submit button`
+         * `Redirects to event show
       * Cancel button (link to events page)
 - Venues
    <!-- - Index
@@ -132,7 +134,7 @@ Controllers
 Route
 * `Enable all routes for all models`
 * Restrict routes after routing configuration finalized
-* Build custom session routes
+* `Build custom session routes`
 
 CSS
 - 
@@ -151,6 +153,7 @@ Seeds
    * `Remove line_length attribute seed`
 - Check In
    * `Add wait_time seed`
+
 
 
 
