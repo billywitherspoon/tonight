@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/login', to: 'sessions#destroy', as: :logout
   post '/user_check_in', to: 'check_ins#new'
-  delete '/user_check_out', to: 'check_ins#delete'
+  delete '/user_check_out', to: 'check_ins#destroy'
 end
 
 # resources :students, only: [:show, :new, :index, :create]
