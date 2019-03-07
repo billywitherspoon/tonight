@@ -1,1 +1,70 @@
-<h1><%= @neighborhood.name %></h1>
+<div class="hero">
+      <div class="hero-head">
+        <p class="title has-text-centered">@neighborhood.name.titleize</p>
+      </div>
+      <div class="hero-body">
+        <% @neighborhood.events.each do |event| %>
+          <div class="box">
+            <nav class="level is">
+              <div class="level-left has-text-centered">
+                <div class="box avg_wait_time">
+                  <p class="heading">Avg. Wait</p>
+                  <p class="title">
+                    <%= event.total_avg_wait_time %>
+                    <br>
+                    <span class="heading">min</span>
+                  </p>
+                </div>
+              </div>
+              <div class="level-left has-text-centered">
+                <div class="box avg_wait_time">
+                  <p class="heading">Avg. Rating</p>
+                  <p class="title">
+                    <%= event.total_avg_rating %>
+                    <br>
+                    <span class="heading">stars</span>
+                  </p>
+                </div>
+              </div>
+              <div class="level-left has-text-centered">
+                  <div class="box avg_wait_time">
+                    <p class="heading">Entry</p>
+                    <p class="title">
+                      $ <%= event.entry_cost %>
+                      <br>
+                      <span class="heading"><br></span>
+                    </p>
+                  </div>
+                </div>
+    
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="heading">Event</p>
+                  <p class="title is-spaced has-text-black"><%= link_to event.name.titleize, event %></p>
+                  <p class="subtitle"><%= event.neighborhood.name %></p>
+                </div>
+              </div>
+              
+              <% unless @current_user.checked_in? && @current_user.last_event == event %>
+              <div class="level-right has-text-centered">
+                <div>
+                  <p class="heading"></p>
+                  <p><%= link_to  "Check in to this event", user_check_in_path(event_id: event.id), method: :post, class: "button is-primary is-outlined wide_button"%></p>
+                </div>
+              </div>
+              <% else %> 
+                <div class="level-right has-text-centered">
+                  <div>
+                    <p class="heading"></p>
+                    <p class="button is-light wide_button">You have been checked in</p>
+                  </div>
+                </div>
+              <% end %>
+            </nav>
+          </div>
+          <% end %>
+      </div>
+      <div class="hero-foot">
+        <p class="header has-text-centered">I don't know what to put here</p>
+      </div>
+    </div>
