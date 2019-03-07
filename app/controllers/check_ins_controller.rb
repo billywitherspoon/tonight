@@ -40,6 +40,7 @@ class CheckInsController < ApplicationController
 
    def delete 
       @user.check_out
+      redirect_to user_path(@user)
    end 
 
    private 
