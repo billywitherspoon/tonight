@@ -1,1 +1,41 @@
-<%= @user.first_name %> show page
+<%  if !@user.events.empty?
+      heading_message = "Your Current Check-ins"
+    else
+      heading_message = "No Check-ins to Display"
+    end
+    upsell_message = "Browse Events"
+%>
+
+<div id="view_page_container" class="container">
+  <div id="view_form_box" class="box">
+    <p class="title">Hello, <%= @user.full_name %></p>
+    <p class="heading"><%= heading_message %></p>
+    <div style="overflow-y: auto;">
+      <% @user.events.each do |event| %>
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+              <%= event.name %>
+            </p>
+            <a href="#" class="card-header-icon" aria-label="more options">
+              <span class="icon">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </a>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              Needs a Faker event description.<br />
+              <time datetime="<%= event.start_time %>"><%= event.start_time %></time>
+            </div>
+          </div>
+          <footer class="card-footer">
+            <%= link_to "Rate", event, class: "button card-footer-item is-primary is-outlined"%>
+            <%= link_to "Browse", events_path, class: "button card-footer-item is-info is-outlined"%>
+            <%= link_to "Check Out", user_check_out_path, class: "button card-footer-item is-danger is-outlined"%>
+          </footer>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
