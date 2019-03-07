@@ -6,6 +6,12 @@
     upsell_message = "Browse Events"
 %>
 
+<% if flash[:notice] %>
+<div class="notification is-warning">
+    <%= flash[:notice] %>
+</div>
+<% end %>
+
 <div id="view_page_container" class="container">
   <div id="view_form_box" class="box">
     <p class="title">Hello, <%= @user.full_name %></p>
@@ -25,14 +31,14 @@
           </header>
           <div class="card-content">
             <div class="content">
-              Needs a Faker event description.<br />
+              <%= check_in.event.venue.name.titleize %><br />
               <time datetime="<%= check_in.event.start_time %>"><%= check_in.event.start_time %></time>
             </div>
           </div>
           <footer class="card-footer">
-            <%= link_to "Rate", check_in.event, class: "button card-footer-item is-primary is-outlined"%>
-            <%= link_to "Browse", events_path, class: "button card-footer-item is-info is-outlined"%>
-            <% if check_in.active %>
+            <!-- <%= link_to "Rate", check_in.event, class: "button card-footer-item is-primary is-outlined"%>
+            <%= link_to "Browse", events_path, class: "button card-footer-item is-info is-outlined"%> -->
+            <% if check_in.active && @user_match %>
               <%= link_to "Check Out", user_check_out_path(check_in), method: :delete, class: "button card-footer-item is-danger is-outlined"%>
             <% else %>
               <span class="card-footer-item"><%= "#{' '}" %></span>

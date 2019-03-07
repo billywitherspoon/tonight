@@ -34,6 +34,7 @@ Stetch
 - A user should be able to see the number of events for each neighborhood
 - A timeout on check in for a user
 - A user is automatically checked out when checking in to a new event
+         * Number of users (attendees)
 
 #Tasks
 
@@ -61,10 +62,9 @@ Views
          * `Event name`
          * Average rating
          * Venue
-         * Number of users (attendees)
          * `Avg Wait time`
          * Start time
-         * Check_in button for each event (link to check in new)
+         * `Check_in button for each event (link to check in new)`
          * More info button for each event (link to event show)
       * Default sort events by attendees
    - Show 
@@ -72,17 +72,17 @@ Views
       * `Average rating`
       * `Venue`
       * `Number of users (attendees)`
-      *  All ratings
+      *  All ratings / who is at this event
       * `Wait time`
       * `Start time`
       * `Submit check in button (link to check in new page)`
-      * Only show button if not checked_in
+      * `Only show button if not checked_in`
 - Users`
    - Show 
-      * Current event
-      * Check out link button
-      * Check out button
-      * Past events
+      * `Current event`
+      * `Check out link button`
+      * `Check out button`
+      * `Past events`
 - CheckIns
    - New
       * `Event name`
@@ -93,7 +93,6 @@ Views
          * `Wait time`
          * `Submit button`
          * `Redirects to event show
-      * Cancel button (link to events page)
 - Venues
    <!-- - Index
       * Venue name (link to venue show)
