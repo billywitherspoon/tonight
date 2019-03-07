@@ -1,6 +1,6 @@
 class CheckInsController < ApplicationController
    before_action :set_check_in, only: [:edit, :update, :show]
-   before_action :set_user, only: [:new, :create, :delete]
+   before_action :set_user, only: [:new, :create, :destroy]
    before_action :set_event, only: [:new]
 
    def index 
@@ -38,7 +38,7 @@ class CheckInsController < ApplicationController
    def edit 
    end 
 
-   def delete 
+   def destroy
       @user.check_out
       redirect_to user_path(@user)
    end 
