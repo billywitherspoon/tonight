@@ -32,7 +32,7 @@
           <footer class="card-footer">
             <%= link_to "Rate", event, class: "button card-footer-item is-primary is-outlined"%>
             <%= link_to "Browse", events_path, class: "button card-footer-item is-info is-outlined"%>
-            <%= link_to "Check Out", user_check_out_path, class: "button card-footer-item is-danger is-outlined"%>
+            <%= link_to "Check Out", user_check_out_path, method: :delete, class: "button card-footer-item is-danger is-outlined"%>
           </footer>
         </div>
       <% end %>
