@@ -19,9 +19,9 @@
       </div>
       <div class="level-right">
         <% if !!@current_user %>
-          <%= link_to "Logout", logout_path, method: :post, class: "button level-item is-outlined"%>
+          <%= link_to "Logout", logout_path, method: :delete, class: "button level-item is-outlined"%>
         <% else %>
-          <%= link_to "Login", login_path, class: "button level-item is-outlined"%>
+          <p>&nbsp;</p>
         <% end %>
       </div>
     </nav>
