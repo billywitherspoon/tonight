@@ -20,7 +20,7 @@ class CheckInsController < ApplicationController
       if check_in.valid?
          check_in.save
          flash[:notice] = "You've checked in to " + event.name.titleize
-         redirect_to event_path(event.id)
+         redirect_to @user #event_path(event.id)
       else
          #remove this errors later
          flash[:errors] = check_in.errors
