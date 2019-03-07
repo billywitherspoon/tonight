@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
    before_action :set_user, only: [:edit, :update, :show]
    before_action :user_match?, only: [:show]
-   before_action :logged_in?
+   before_action :logged_in?, except: [:new, :create]
    
    def index 
       @users = User.all
