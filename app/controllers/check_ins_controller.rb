@@ -10,7 +10,8 @@ class CheckInsController < ApplicationController
       @event = Event.find(params[:event_id])
       @user = User.find(session[:user_id])
       @check_in = CheckIn.new 
-      @rating_array = (1..5).to_a
+      @rating_array = (1..5).to_a.reverse
+      @wait_time_array = (0..60).to_a.select{|i| i % 5 == 0}
    end 
 
    def create 
@@ -21,9 +22,9 @@ class CheckInsController < ApplicationController
          redirect_to events_path
       else
          #remove this errors later
-         flash[:errors] = user.errors
+         flash[:errors] = check_in.errors
          # flash[:message] = 'Could not create new user'
-         render new_check_in_path
+         redirect_to new_check_in_path(event_id: check_in_params[:event_id])
       end
    end 
 
