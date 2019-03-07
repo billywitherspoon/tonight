@@ -3,9 +3,9 @@
     <p class="title has-text-centered">Trending Events</p>
   </div>
   <div class="hero-body">
-    <div class="box">
-      <% @events.each do |event| %>
-        <nav class="level is-outlined">
+    <% @events.each do |event| %>
+      <div class="box">
+        <nav class="level is">
           <div class="level-left has-text-centered">
             <div class="box avg_wait_time">
               <p class="heading">Avg. Wait</p>
@@ -47,13 +47,12 @@
               <div>
                 <p class="heading"></p>
                 <p class="button is-light wide_button">You have been checked in</p>
-                <!-- <p><%= link_to  "Check in to this event", user_check_in_path(event_id: event.id), method: :post, class: "button is-primary is-outlined"%></p> -->
               </div>
             </div>
           <% end %>
         </nav>
+      </div>
       <% end %>
-    </div>
   </div>
   <div class="hero-foot">
     <p class="header has-text-centered">I don't know what to put here</p>

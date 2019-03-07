@@ -1,9 +1,11 @@
 #create 10 users (faker names)
 100.times do
-  User.create(
+   user = User.find_or_create_by(
+      email: Faker::Internet.free_email
+   )
+  user.update(
      first_name: Faker::Name.first_name,
      last_name: Faker::Name.last_name,
-     email: Faker::Internet.free_email,
      password: Faker::Internet.password,
      phone_number: Faker::PhoneNumber.cell_phone
   )
@@ -34,8 +36,10 @@ end
 
 #create 10 events (faker nebulas)
 50.times do
-   Event.create(
+   event = Event.find_or_create_by(
       name: Faker::App.name,
+   )
+   event.update(
       venue: Venue.all.sample,
       entry_cost: rand(0..50),
       start_time: Faker::Time.forward(1, :evening)
@@ -50,9 +54,9 @@ User.all.each do |user|
          event: Event.all.sample,
          rating: rand(1..5),
          comment: Faker::Hipster.paragraph,
-         wait_time: rand(0..50),
+         wait_time: rand(0..60),
          active: 0
       )
    end
-   user.check_ins.last.active = 1
+   user.check_ins.last.update(active: true)
 end 

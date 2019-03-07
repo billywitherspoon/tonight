@@ -1,5 +1,23 @@
-<h1>Neighborhoods</h1>
-
-<% @neighborhoods.each do |hood| %>
-  <p><%= hood.name %></p>
-<% end %>
+<div class="hero">
+    <div class="hero-head">
+      <p class="title has-text-centered">All Neighborhoods</p>
+    </div>
+    <div class="hero-body">
+      <% @neighborhoods.each do |neighborhood| %>
+        <div class="box">
+          <nav class="level is-outlined">
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Neighborhood</p>
+                <p class="title is-spaced"><%= link_to neighborhood.name.titleize, neighborhood %></p>
+                <p class="subtitle">Venues: <%= neighborhood.venues.count %></p>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <% end %>
+    </div>
+    <div class="hero-foot">
+      <p class="header has-text-centered">I don't know what to put here</p>
+    </div>
+  </div>
