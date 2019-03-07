@@ -1,5 +1,5 @@
 #create 10 users (faker names)
-20.times do
+100.times do
   User.create(
      first_name: Faker::Name.first_name,
      last_name: Faker::Name.last_name,
@@ -44,7 +44,7 @@ end
 
 #create 3 checkins for each user
 User.all.each do |user| 
-   7.times do
+   3.times do
       CheckIn.create(
          user: user,
          event: Event.all.sample,
