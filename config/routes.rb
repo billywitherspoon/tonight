@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   post '/user_check_in', to: 'check_ins#new'
   delete '/user_check_out', to: 'check_ins#destroy'
+  get '/', to: 'events#index'
   #delete '/logout', to: 'sessions#destroy', as: :logout
 end
 
