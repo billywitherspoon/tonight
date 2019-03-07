@@ -17,13 +17,15 @@
     <nav class="level fixed-element">
       <div class="level-left">
         <% if !!@current_user %>
-          <%= link_to "What's Poppin'", events_path, class: "level-item title"%>
+          <p class="level-item title"><%= link_to "What's Poppin'", events_path, class: "has-text-primary" %></p>
         <% else %>
           <p>&nbsp;</p>
         <% end %>
       </div>
       <div class="level-right">
         <% if !!@current_user %>
+          <span class="level-item">Welcome back, </span>
+          <%= link_to @current_user.full_name.titleize, user_path(@current_user), class: "button level-item is-outlined"%>
           <%= link_to "Logout", logout_path, method: :delete, class: "button level-item is-outlined"%>
         <% else %>
           <p>&nbsp;</p>

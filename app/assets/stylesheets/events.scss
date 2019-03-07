@@ -10,3 +10,22 @@
     width: 20vw;
   }
 }
+
+@media screen {
+  #view_page_container {
+    display: flex;
+    overflow-y: auto;
+    padding: 1em;
+    align-items: center;
+    justify-content: center;
+    top: 3em;
+    width: 100vw;
+    height: calc(100vh - 3em);
+  }
+  #view_form_box {
+    display: flex;
+    flex-direction: column;
+    min-width: 40vw;
+    max-height: 50vh;
+  }
+}
