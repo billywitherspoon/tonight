@@ -16,6 +16,11 @@
   <body>
     <nav class="level fixed-element">
       <div class="level-left">
+        <% if !!@current_user %>
+          <%= link_to "What's Poppin'", events_path, class: "level-item title"%>
+        <% else %>
+          <p>&nbsp;</p>
+        <% end %>
       </div>
       <div class="level-right">
         <% if !!@current_user %>

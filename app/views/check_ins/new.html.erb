@@ -1,30 +1,34 @@
-<h1>Check in to <%= @event.name.titleize  %> </h1>
-<h2><%= @event.venue.name.titleize %></h2>
-<h2><%= @event.simple_start_time %></h2>
+<div id="view_page_container" class="container">
+  <div id="view_form_box" class="box">
+    <h1>Check in to <%= @event.name.titleize  %> </h1>
+    <h2><%= @event.venue.name.titleize %></h2>
+    <h2><%= @event.simple_start_time %></h2>
 
-<% if flash[:errors] %>
-<div class="notification is-warning">
-    <%= flash[:errors] %>
+    <% if flash[:errors] %>
+    <div class="notification is-warning">
+        <%= flash[:errors] %>
+    </div>
+    <% end %>
+    <%= form_for @check_in do |f| %>
+      <p>
+          <%= f.label :rating, "Rating: " %>
+          <%= f.collection_select :rating, @rating_array, :to_s, :to_s %> stars
+      </p>
+      <p>
+          <%= f.label :wait_time, "Approximately how many minutes did you wait in line?" %>
+          <%= f.collection_select :wait_time, @wait_time_array, :to_s, :to_s  %>
+      </p>
+      <p>
+          <%= f.label :comment, "Comments:" %>
+          <%= f.text_area :comment %>
+      </p>
+      <%= f.hidden_field :user_id, value: @user.id %>
+      <%= f.hidden_field :event_id, value: @event.id %>
+      <%= f.hidden_field :active, value: 1 %>
+      <p>
+          <%= f.submit %>
+      </p>
+    <% end %>
+  </div>
 </div>
-<% end %>
-<%= form_for @check_in do |f| %>
-   <p>
-      <%= f.label :rating, "Rating: " %>
-      <%= f.collection_select :rating, @rating_array, :to_s, :to_s %> stars
-   </p>
-   <p>
-      <%= f.label :wait_time, "Approximately how many minutes did you wait in line?" %>
-      <%= f.collection_select :wait_time, @wait_time_array, :to_s, :to_s  %>
-   </p>
-   <p>
-      <%= f.label :comment, "Comments:" %>
-      <%= f.text_area :comment %>
-   </p>
-   <%= f.hidden_field :user_id, value: @user.id %>
-   <%= f.hidden_field :event_id, value: @event.id %>
-   <%= f.hidden_field :active, value: 1 %>
-   <p>
-      <%= f.submit %>
-   </p>
-<% end %>
    
