@@ -24,7 +24,7 @@ Neighborhood.create(name: "Shoreline")
 
 
 #create 10 venues (faker companies)
-30.times do
+50.times do
    venue = Venue.find_or_create_by(
       name: Faker::TvShows::Friends.location
    )
@@ -41,7 +41,7 @@ end
    )
    event.update(
       venue: Venue.all.sample,
-      entry_cost: rand(0..50),
+      entry_cost: [0, 5, 10, 15].sample,
       start_time: Faker::Time.forward(1, :evening)
    )
 end 
@@ -54,7 +54,7 @@ User.all.each do |user|
          event: Event.all.sample,
          rating: rand(1..5),
          comment: Faker::Hipster.paragraph,
-         wait_time: rand(0..60),
+         wait_time: rand(0..30),
          active: 0
       )
    end
