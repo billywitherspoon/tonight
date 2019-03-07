@@ -8,9 +8,12 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :phone_number, presence: true
   # validates :phone_number, {presense: true, length: }
 
-  validates_format_of :phone_number,
-  :with => /\(?[0-9]{3}\)?-[0-9]{3}-[0-9]{4}/,
-  :message => "- Phone numbers must be in xxx-xxx-xxxx format."
+  validates :phone_number, format: { with: /\A\(?\d{3}\)?[- ]?\d{3}[- ]?\d{4}\z/,
+                              message: I18n.t('global.errors.phone_format')}
+  
+  # validates_format_of :phone_number,
+  # :with => /\(?[0-9]{3}\)?-[0-9]{3}-[0-9]{4}/,
+  # :message => "- Phone numbers must be in xxx-xxx-xxxx format."
 
   def full_name
     self.first_name.titleize + " " + self.last_name.titleize
@@ -21,9 +24,6 @@ class User < ApplicationRecord
   end
   
   def check_out
-    # we can try a try here
-    # self.check_ins.last.try(:update) {
-    #}
     self.check_ins.last.update(active: false) if !self.check_ins.empty?
   end
 end

@@ -25,7 +25,7 @@ class UsersController < ApplicationController
          #remove this errors later
          flash[:errors] = user.errors
          # flash[:message] = 'Could not create new user'
-         redirect_to events_path
+         redirect_to new_user_path
       end
    end 
 
