@@ -14,6 +14,7 @@ class NeighborhoodsController < ApplicationController
      end 
   
      def show 
+      @events = @neighborhood.sort_events(@current_user)
      end 
   
      def update 

@@ -20,12 +20,12 @@
         <div class="card">
           <header class="card-header">
             <p class="card-header-title">
-              <%= check_in.event.name %>
+              <%= link_to  check_in.event.name.titleize, check_in.event %>
             </p>
           </header>
           <div class="card-content">
             <div class="content">
-              <p class="content"><%= check_in.event.venue.name.titleize %>, <%= check_in.event.neighborhood.name.titleize %></p>
+              <p class="content"><%= link_to  check_in.event.venue.name.titleize, check_in.event.venue %>, <%= link_to  check_in.event.neighborhood.name.titleize, check_in.event.neighborhood %></p>
               <p class="content">Scheduled: <%= check_in.event.simple_start_time %></p>
             </div>
           </div>

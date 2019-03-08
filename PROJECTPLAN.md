@@ -52,20 +52,20 @@ Models
 Views
 - Neighborhoods
    - Index
-      * List of neighborhoods
+      * `List of neighborhoods`
    - Show
-      * List of events for the neighborhood
+      * `List of events for the neighborhood`
 - Events
    - Index 
       * Add attribute for each event:
          * `Event name`
          * `Average rating`
-         * Venue
+         * `Venue`
          * `Avg Wait time`
-         * Start time
+         * `Start time`
          * `Check_in button for each event (link to check in new)`
-         * More info button for each event (link to event show)
-      * Default sort events by attendees
+         * `More info button for each event (link to event show)`
+      * `Default sort events by rating`
    - Show 
       * `Event name`
       * `Average rating`

@@ -14,6 +14,7 @@ class VenuesController < ApplicationController
      end 
   
      def show
+         @events = @venue.sort_events(@current_user)
      end 
   
      def update 

@@ -24,5 +24,13 @@
             </div>
          </div>
       </nav>
-      <%= link_to  "Check in to this event", user_check_in_path(event_id: @event.id), method: :post, class: "button is-primary is-outlined wide_button is-fullwidth"%>
+      <div class="level-right has-text-centered">
+            <% unless @current_user.checked_in? && @current_user.last_event == @event %>
+         <%= link_to  "Check in to this event", user_check_in_path(event_id: @event.id), method: :post, class: "button is-primary is-outlined wide_button is-fullwidth"%>
+         <% else %>
+         <%= link_to "Check Out", user_check_out_path, method: :delete, class: "button card-footer-item is-danger is-outlined wide_button"%>
+         <% end %>
+         </div>
    </div>
+
+   
