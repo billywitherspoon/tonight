@@ -1,48 +1,49 @@
-<% if flash[:notice] %>
-<div class="notification is-warning">
-    <%= flash[:notice] %>
-</div>
-<% end %>
-
-
-<div id="view_page_container" class="container">
+<div id="fit_contents_below_menu">
+<!--<div id="view_page_container" class="container">-->
   <div id="view_form_box" class="box">
-    <p class="title">Login</p>
-    <%= form_tag login_path do %>
-      <div class="field">
-        <%= label_tag :email, nil, class: "label" %>
-        <div class="control has-icons-left has-icons-right">
-          <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
-          </span>
-
-          <%= email_field_tag :email, nil, placeholder: 'example@example.com', class: "input" %>
-
+    <div>
+      <p class="title">Login</p>
+      <% if flash[:error] %>
+        <div class="notification">
+          <%= flash[:error] %>
         </div>
-      </div>
+      <% end %>
+      <%= form_tag login_path do %>
+        <div class="field">
+          <%= label_tag :email, nil, class: "label" %>
+          <div class="control has-icons-left has-icons-right">
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
 
-      <% if flash[:errors] %>
-      <div class="notification is-warning">
-          This error needs to be changed
-      </div>
-    <% end %>
+            <%= email_field_tag :email, nil, placeholder: 'example@example.com', class: "input" %>
 
-      <div class="field">
-        <%= label_tag :password, nil, class: "label" %>
-        <div class="control has-icons-left">
-          <span class="icon is-small is-left">
-            <i class="fas fa-key"></i>
-          </span>
-
-          <%= password_field_tag :password, nil, placeholder: 'Password', class: "input" %>
-
+          </div>
         </div>
-      </div>
-      <div class="level">
-        <span class="level-left">
-          <%= submit_tag "Login", class: "button level-item is-primary is-outlined" %><span class="level-item">or</span><%= link_to "Sign Up", new_user_path, class: "button level-item is-primary is-outlined" %>
-        </span>
-      </div>
-    <% end %>
+
+        <div class="field">
+          <%= label_tag :password, nil, class: "label" %>
+          <div class="control has-icons-left">
+            <span class="icon is-small is-left">
+              <i class="fas fa-key"></i>
+            </span>
+
+            <%= password_field_tag :password, nil, placeholder: 'Password', class: "input" %>
+
+          </div>
+        </div>
+        <div class="level">
+          <span class="level-left">
+            <%= submit_tag "Login", class: "button level-item is-primary is-outlined wide_button" %>
+          </span>
+          <span class="level-item">
+            <span class="level-item">&nbsp;or&nbsp;</span>
+          </span>
+          <span class="level-right">
+            <%= link_to "Sign Up", new_user_path, class: "button level-item is-primary is-outlined wide_button" %>
+          </span>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

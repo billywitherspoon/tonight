@@ -5,15 +5,16 @@
     end
 %>
 
-<% if flash[:notice] %>
-<div class="notification is-warning">
-    <%= flash[:notice] %>
-</div>
-<% end %>
 
-<div id="view_page_container" class="container">
+<!--<div id="view_page_container" class="container">-->
+<div id="fit_contents_below_menu">
   <div id="view_form_box" class="box">
     <p class="title"><%= @user.full_name %></p>
+    <% if flash[:notice] %>
+<div class="notification is-success is-small">
+    <p><%= flash[:notice] %></p>
+</div>
+<% end %>
     <p class="heading"><%= heading_message %></p>
     <div style="overflow-y: auto;">
       <% @user.check_ins.reverse.each do |check_in| %>
@@ -41,4 +42,5 @@
       <% end %>
     </div>
   </div>
-</div>
+<div id="fit_contents_below_menu">
+<!--</div>-->

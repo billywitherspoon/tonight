@@ -1,4 +1,5 @@
-<div id="view_page_container" class="container">
+
+<div id="fit_contents_below_menu">
   <div id="view_form_box" class="box">
     <p class="title">New User Sign Up</p>
     <% if flash[:errors] %>
@@ -87,7 +88,17 @@
 
         </div>
       </div>
-      <%= f.submit "Create User", class: "button is-primary is-outlined" %>
+      <div class="level">
+          <span class="level-left">
+            <%= f.submit "Create User", class: "button level-item is-primary is-outlined wide_button" %>
+          </span>
+          <span class="level-item">
+            <span class="level-item">&nbsp;or&nbsp;</span>
+          </span>
+          <span class="level-right">
+            <%= link_to "Login", login_path, class: "button level-item is-primary is-outlined wide_button" %>
+          </span>
+        </div>
     <% end %>
   </div>
 </div>
