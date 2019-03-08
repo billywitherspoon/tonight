@@ -1,67 +1,33 @@
-<div class="hero">
-    <div class="hero-head">
-      <p class="title has-text-centered">@neighborhood.name.titleize</p>
-    </div>
-    <div class="hero-body">
-      <% @neighborhood.events.each do |event| %>
-        <div class="box">
-          <nav class="level is">
-            <div class="level-left has-text-centered">
-              <div class="box avg_wait_time">
-                <p class="heading">Avg. Wait</p>
-                <p class="title">
-                  <%= event.total_avg_wait_time %>
-                  <br>
-                  <span class="heading">min</span>
-                </p>
-              </div>
-            </div>
-            <div class="level-left has-text-centered">
-              <div class="box avg_wait_time">
-                <p class="heading">Avg. Rating</p>
-                <p class="title">
-                  <%= event.total_avg_rating %>
-                  <br>
-                  <span class="heading">stars</span>
-                </p>
-              </div>
-            </div>
-            <div class="level-left has-text-centered">
-                <div class="box avg_wait_time">
-                  <p class="heading">Entry</p>
-                  <p class="title">
-                    $ <%= event.entry_cost %>
-                    <br>
-                    <span class="heading"><br></span>
-                  </p>
-                </div>
-              </div>
-  
-            <div class="level-item has-text-centered">
+
+<div id="fit_contents_below_menu">
+  <!--<div id="view_page_container" class="container">-->
+    <div class="hero" style="width: 100%">
+      <div class="hero-head">
+        <div class="level fixed-sub-element has-text-centered has-text-white">
+          <% @neighborhoods.each do |hood| %>
+            <div class="level-item has-text-white">
               <div>
-                <p class="heading">Event</p>
-                <p class="title is-spaced has-text-black"><%= link_to event.name.titleize, event %></p>
-                <p class="subtitle"><%= event.neighborhood.name %></p>
+                <%= link_to hood.name, hood, class:"heading has-text-white" %>
               </div>
             </div>
-            
-            <% unless @current_user.checked_in? && @current_user.last_event == event %>
-            <div class="level-right has-text-centered">
-              <div>
-                <p class="heading"></p>
-                <p><%= link_to  "Check in to this event", user_check_in_path(event_id: event.id), method: :post, class: "button is-primary is-outlined wide_button"%></p>
-              </div>
-            </div>
-            <% else %> 
-              <div class="level-right has-text-centered">
-                <div>
-                  <p class="heading"></p>
-                  <p class="button is-light wide_button">You have been checked in</p>
-                </div>
-              </div>
-            <% end %>
-          </nav>
+          <% end %>
         </div>
-        <% end %>
+      </div>
+      <div class="hero-body">
+        <% @neighborhoods.each do |neighborhood| %>
+          <div class="box">
+            <nav class="level is-outlined">
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="heading">Neighborhood</p>
+                  <p class="title is-spaced has-text-black"><%= link_to neighborhood.name.titleize, neighborhood %></p>
+                  <p class="subtitle">Venues: <%= neighborhood.venues.count %></p>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <% end %>
+      </div>
     </div>
-  </div>
+  <!--</div>-->
+</div>

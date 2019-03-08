@@ -1,6 +1,15 @@
-<div class="hero">
-      <div class="hero-head">
-        <p class="title has-text-centered">@neighborhood.name.titleize</p>
+<div id="fit_contents_below_menu">
+    <div class="hero">
+      <div class="hero-head" style="width:100;">
+        <div class="level fixed-sub-element has-text-centered has-text-white">
+          <% @neighborhood.venues.each do |venue| %>
+            <div class="level-item has-text-white">
+              <div>
+                <%= link_to venue.name, venue, class:"heading has-text-white" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
       <div class="hero-body">
         <% @neighborhood.events.each do |event| %>
@@ -64,4 +73,5 @@
           </div>
           <% end %>
       </div>
+    </div>
     </div>
