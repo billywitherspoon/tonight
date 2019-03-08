@@ -21,7 +21,7 @@ MVP
 
 Stetch
 
-- Events on the event page should be default orderd by most attendees
+- `Events on the event page should be default orderd by most ratings`
 - A user should be able to see the number of attendees for a single event
 - A user should be able to sort events by (number of attendees, rating, starting earliest)
 - A user should be able to see a visualization of popularity of a model by day
@@ -30,9 +30,9 @@ Stetch
 - A user should be able to follow an event 
 - A user should be able to see an average rating for a single event within a specified time period 
 - A user should be able to see their account settings 
-- A user should be able to see the number of events for each neighborhood
+- `A user should be able to see the number of events for each neighborhood`
 - A timeout on check in for a user
-- A user is automatically checked out when checking in to a new event
+- `A user is automatically checked out when checking in to a new event`
          * Number of users (attendees)
 
 #Tasks
