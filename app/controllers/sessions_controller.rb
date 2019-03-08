@@ -7,23 +7,14 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:email])
     user = user.try(:authenticate, params[:password])
-
-    unless user
-      if params[:email] = ""
-        email_err_string = "You must enter a email address"
-      end
-
-      if params[:password] = ""
-        password_err_string = "You must enter a email address"
-      end
-
-      return redirect_to login_path, flash: {error_email: email_err_string, error_password: password_err_string}
+    unless user 
+      flash[:notice] = "Invalid Login"
+      redirect_to new_session_path
+    else
+      session[:user_id] = user.id
+      @user = user
+      redirect_to user_path
     end
-    
-    session[:user_id] = user.id
-    @user = user
-    
-    redirect_to events_path
   end
 
   def destroy 
