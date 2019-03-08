@@ -1,9 +1,10 @@
-<%  if !@user.events.empty?
-      heading_message = "Your Current Check-ins"
+<%  track_active = nil
+
+    if !@user.events.empty?
+      heading_message = "Your Check-ins"
     else
       heading_message = "No Check-ins to Display"
     end
-    upsell_message = "Browse Events"
 %>
 
 <% if flash[:notice] %>
@@ -23,11 +24,6 @@
             <p class="card-header-title">
               <%= check_in.event.name %>
             </p>
-            <a href="#" class="card-header-icon" aria-label="more options">
-              <span class="icon">
-                <i class="fas fa-angle-down" aria-hidden="true"></i>
-              </span>
-            </a>
           </header>
           <div class="card-content">
             <div class="content">
@@ -40,12 +36,21 @@
             <%= link_to "Browse", events_path, class: "button card-footer-item is-info is-outlined"%> -->
             <% if check_in.active && @user_match %>
               <%= link_to "Check Out", user_check_out_path(check_in), method: :delete, class: "button card-footer-item is-danger is-outlined"%>
+              <% track_active ||= true %>
             <% else %>
               <span class="card-footer-item"><%= "#{' '}" %></span>
             <% end %>
           </footer>
         </div>
       <% end %>
+      <%  if track_active
+            more_string = " More "
+          else
+            more_string = ""
+          end
+          upsell_message = "Browse #{more_string} Events"
+      %>
+      <%= link_to upsell_message, events_path, class: "button card-footer-item is-info is-outlined" %>
     </div>
   </div>
 </div>
