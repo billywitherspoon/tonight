@@ -5,42 +5,44 @@
     end
 %>
 
-
-<!--<div id="view_page_container" class="container">-->
 <div id="fit_contents_below_menu">
-  <div id="view_form_box" class="box">
-    <p class="title"><%= @user.full_name %></p>
-    <% if flash[:notice] %>
-<div class="notification is-success is-small">
-    <p><%= flash[:notice] %></p>
-</div>
-<% end %>
-    <p class="heading"><%= heading_message %></p>
-    <div style="overflow-y: auto;">
-      <% @user.check_ins.reverse.each do |check_in| %>
-        <div class="card">
-          <header class="card-header">
-            <p class="card-header-title">
-              <%= link_to  check_in.event.name.titleize, check_in.event %>
-            </p>
-          </header>
-          <div class="card-content">
-            <div class="content">
-              <p class="content"><%= link_to  check_in.event.venue.name.titleize, check_in.event.venue %>, <%= link_to  check_in.event.neighborhood.name.titleize, check_in.event.neighborhood %></p>
-              <p class="content">Scheduled: <%= check_in.event.simple_start_time %></p>
-            </div>
-          </div>
-          <footer class="card-footer">
-            <% if check_in.active && @user_match %>
-              <%= link_to "Check Out", user_check_out_path, method: :delete, class: "button card-footer-item is-danger is-outlined"%>
-              <% track_active ||= true %>
-            <% else %>
-              <span class="card-footer-item"><%= "#{' '}" %></span>
-            <% end %>
-          </footer>
-        </div>
-      <% end %>
+  <div class="hero" style="width: 100%">
+    <div class="hero-head">
+      <p>&nbsp;</p>
     </div>
-  </div>
-<div id="fit_contents_below_menu">
+    <div class="hero-body">
+      <div id="view_form_box" class="box">
+        <p class="title"><%= @user.full_name %></p>
+        <% if flash[:notice] %>
+          <div class="notification is-success is-small">
+            <p><%= flash[:notice] %></p>
+          </div>
+        <% end %>
+        <p class="heading"><%= heading_message %></p>
+        <div style="overflow-y: auto;">
+          <% @user.check_ins.reverse.each do |check_in| %>
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title">
+                  <%= link_to  check_in.event.name.titleize, check_in.event %>
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  <p class="content"><%= link_to  check_in.event.venue.name.titleize, check_in.event.venue %>, <%= link_to  check_in.event.neighborhood.name.titleize, check_in.event.neighborhood %></p>
+                  <p class="content">Scheduled: <%= check_in.event.simple_start_time %></p>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <% if check_in.active && @user_match %>
+                  <%= link_to "Check Out", user_check_out_path, method: :delete, class: "button card-footer-item is-danger is-outlined"%>
+                <% else %>
+                  <span class="card-footer-item"><%= "#{' '}" %></span>
+                <% end %>
+              </footer>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
 <!--</div>-->

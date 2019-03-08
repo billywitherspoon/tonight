@@ -1,6 +1,15 @@
+<div id="fit_contents_below_menu">
 <div class="hero">
   <div class="hero-head">
-    <p class="title has-text-centered">Trending Events</p>
+    <div class="level fixed-sub-element has-text-centered has-text-white">
+      <% @events.each do |event| %>
+        <div class="level-item has-text-white">
+          <div>
+            <%= link_to event.name, event, class:"heading has-text-white" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
   <div class="hero-body">
     <% @events.each do |event| %>

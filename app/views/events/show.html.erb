@@ -1,36 +1,43 @@
-<div id="view_page_container" class="container">
-   <div id="view_form_box" class="box">
-      <p class="title is-3 has-text-centered is-spaced"><%= @event.name.titleize %></p>
-      <p class="subtitle is-5 has-text-centered"><%= @event.simple_start_time %></p>
-      <p class="subtitle is-5 has-text-centered"><%= @event.venue.name.titleize %></p>
-      <p class="subtitle is-5 has-text-centered is-spaced"><%= @event.neighborhood.name.titleize %></p>
-      <nav class="level">
-         <div class="level-item has-text-centered">
+<div id="fit_contents_below_menu">
+  <div class="hero" style="width: 33vw;">
+    <div class="hero-head">
+      <p>&nbsp;</p>
+    </div>
+    <div class="hero-body">
+      <div id="view_form_box" class="box">
+        <p class="title is-3 has-text-centered is-spaced"><%= @event.name.titleize %></p>
+        <p class="subtitle is-5 has-text-centered"><%= @event.simple_start_time %></p>
+        <p class="subtitle is-5 has-text-centered"><%= @event.venue.name.titleize %></p>
+        <p class="subtitle is-5 has-text-centered is-spaced"><%= @event.neighborhood.name.titleize %></p>
+        <nav class="level">
+          <div class="level-item has-text-centered">
             <div>
-               <p class="heading">Avg. Wait</p>
-               <p class="title"><%= @event.total_avg_wait_time %></p>
+              <p class="heading">Avg. Wait</p>
+              <p class="title"><%= @event.total_avg_wait_time %></p>
             </div>
-         </div>
-         <div class="level-item has-text-centered">
+          </div>
+          <div class="level-item has-text-centered">
             <div>
-               <p class="heading">Avg. Rating</p>
-               <p class="title"><%= @event.total_avg_rating %></p>
+              <p class="heading">Avg. Rating</p>
+              <p class="title"><%= @event.total_avg_rating %></p>
             </div>
-         </div>
-         <div class="level-item has-text-centered">
+          </div>
+          <div class="level-item has-text-centered">
             <div>
-               <p class="heading">Entry</p>
-               <p class="title">$ <%= @event.entry_cost %></p>
+              <p class="heading">Entry</p>
+              <p class="title">$ <%= @event.entry_cost %></p>
             </div>
-         </div>
-      </nav>
-      <div class="level-right has-text-centered">
-            <% unless @current_user.checked_in? && @current_user.last_event == @event %>
-         <%= link_to  "Check in to this event", user_check_in_path(event_id: @event.id), method: :post, class: "button is-primary is-outlined wide_button is-fullwidth"%>
-         <% else %>
-         <%= link_to "Check Out", user_check_out_path, method: :delete, class: "button card-footer-item is-danger is-outlined wide_button"%>
-         <% end %>
-         </div>
-   </div>
-
+          </div>
+        </nav>
+        <div class="level-right has-text-centered">
+          <% unless @current_user.checked_in? && @current_user.last_event == @event %>
+            <%= link_to  "Check in to this event", user_check_in_path(event_id: @event.id), method: :post, class: "button is-primary is-outlined wide_button is-fullwidth"%>
+          <% else %>
+            <%= link_to "Check Out", user_check_out_path, method: :delete, class: "button card-footer-item is-danger is-outlined wide_button"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
    
