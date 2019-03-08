@@ -26,6 +26,7 @@ a {
     justify-content: center;
     margin-top: 3em;
     margin-bottom: 0;
+    padding-bottom: 6vh;
     padding-top: 1em;
     width: 100%;
     overflow-y: auto;
@@ -50,7 +51,7 @@ body {
 
 .fixed-element {
   padding: 0.5em;
-  background-color: gray;
+  background-color: rgb(194, 103, 0);
   position: fixed;
   left: 0;
   top: 0;

@@ -89,14 +89,14 @@
         </div>
       </div>
       <div class="level">
-          <span class="level-left">
-            <%= f.submit "Create User", class: "button level-item is-primary is-outlined wide_button" %>
+      <span class="level-left">
+            <%= link_to "Return to Login", login_path, class: "button level-item is-primary is-outlined wide_button" %>
           </span>
           <span class="level-item">
             <span class="level-item">&nbsp;or&nbsp;</span>
           </span>
           <span class="level-right">
-            <%= link_to "Login", login_path, class: "button level-item is-primary is-outlined wide_button" %>
+            <%= f.submit "Create User", class: "button level-item is-primary is-outlined wide_button" %>
           </span>
         </div>
     <% end %>

@@ -15,33 +15,33 @@
   </head>
   <body>
     <nav class="level fixed-element">
-      <% if !!@current_user %>
+      <% if !@current_user %>
+        <!-- only show the title centered if not logged in -->
+        <div class="level-item heading is-size-3">
+          <span class="has-text-light">What's Poppin'</span>
+        </div>
+      <% else %>
+        <!-- display all of the menu if logged in -->
+        <!-- left side -->
         <div class="level-left">
           <p class="level-item heading is-size-3"><%= link_to "What's Poppin'", events_path, class: "has-text-light" %></p>
-          <div class="level-item">
-            <%= link_to "Events", events_path, class: "heading has-text-centered has-text-white" %>
-          </div>
-          <div class="level-item">
+        </div>
+        <!-- center -->
+        <div class="level-item">
+          <%= link_to "Events", events_path, class: "heading has-text-centered has-text-white" %>
+        </div>
+        <div class="level-item">
           <%= link_to "Venues", venues_path, class: "heading has-text-centered has-text-white" %>
-          </div>
-          <div class="level-item">
+        </div>
+        <div class="level-item">
           <%= link_to "Neighborhoods", neighborhoods_path, class: "heading has-text-centered has-text-white" %>
-          </div>
-          <div class="level-right">
-            <% if !!@current_user %>
-              <span class="level-item heading has-text-centered has-text-white">Welcome, </span>
-              <%= link_to @current_user.full_name.titleize, user_path(@current_user), class: "button level-item is-outlined"%>
-              <%= link_to "Logout", logout_path, method: :delete, class: "button level-item is-outlined"%>
-            <% else %>
-              <p>&nbsp;</p>
-            <% end %>
-          </div>
-          <% else %>
-          <div class="level-left">
-            <p>&nbsp;</p>
-          </div>
-        <% end %>
-      </div>
+        </div>
+        <!-- right -->
+        <div class="level-right">
+          <%= link_to @current_user.full_name.titleize, user_path(@current_user), class: "button level-item is-outlined"%>
+          <%= link_to "Logout", logout_path, method: :delete, class: "button level-item is-outlined"%>
+        </div>
+      <% end %>
     </nav>
     <%= yield %>
   </body>
