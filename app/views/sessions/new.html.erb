@@ -1,11 +1,6 @@
 <div id="view_page_container" class="container">
   <div id="view_form_box" class="box">
     <p class="title">Login</p>
-    <% if flash[:errors] %>
-      <div class="notification is-warning">
-          This error needs to be changed
-      </div>
-    <% end %>
     <%= form_tag login_path do %>
       <div class="field">
         <%= label_tag :email, nil, class: "label" %>
@@ -18,6 +13,12 @@
 
         </div>
       </div>
+
+      <% if flash[:errors] %>
+      <div class="notification is-warning">
+          This error needs to be changed
+      </div>
+    <% end %>
 
       <div class="field">
         <%= label_tag :password, nil, class: "label" %>
