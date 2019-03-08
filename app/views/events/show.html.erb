@@ -1,7 +1,12 @@
 <div id="fit_contents_below_menu">
-  <div class="hero" style="width: 33vw;">
-    <div class="hero-head">
-      <p>&nbsp;</p>
+  <div class="hero">
+    <div class="hero-head" style="width:100;">
+      <div class="level fixed-sub-element-title has-text-centered">
+        <span class="level-item heading is-size-4 has-text-white">Event Details</span>
+      </div>
+      <div class="level fixed-sub-element-details has-text-centered has-text-white">
+        <span class="level-item has-text-white">&nbsp;</span>
+      </div>
     </div>
     <div class="hero-body">
       <div id="view_form_box" class="box">
@@ -29,11 +34,12 @@
             </div>
           </div>
         </nav>
-        <div class="level-right has-text-centered">
+        <div class="has-text-centered">
           <% unless @current_user.checked_in? && @current_user.last_event == @event %>
             <%= link_to  "Check in to this event", user_check_in_path(event_id: @event.id), method: :post, class: "button is-primary is-outlined wide_button is-fullwidth"%>
           <% else %>
-            <%= link_to "Check Out", user_check_out_path, method: :delete, class: "button card-footer-item is-danger is-outlined wide_button"%>
+            <p class="heading level-item has-text-centered">You Are Checked Into This Event</p>
+            <%= link_to "Check Out", user_check_out_path, method: :delete, class: "button card-footer-item is-danger is-outlined", style: "width: 100%"%>
           <% end %>
         </div>
       </div>

@@ -1,11 +1,14 @@
 <div id="fit_contents_below_menu">
     <div class="hero">
       <div class="hero-head" style="width:100;">
-        <div class="level fixed-sub-element has-text-centered has-text-white">
+        <div class="level fixed-sub-element-title has-text-centered">
+          <span class="level-item heading is-size-4 has-text-white"><%= @neighborhood.name %></span>
+        </div>
+        <div class="level fixed-sub-element-details has-text-centered has-text-white">
           <% @neighborhood.venues.each do |venue| %>
             <div class="level-item has-text-white">
               <div>
-                <%= link_to venue.name, venue, class:"heading has-text-white" %>
+                <!--<%= link_to venue.name, venue, class:"heading has-text-white" %>-->
               </div>
             </div>
           <% end %>
@@ -14,7 +17,7 @@
       <div class="hero-body">
         <% @events.each do |event| %>
           <div class="box">
-            <nav class="level is">
+            <nav class="level">
               <div class="level-left has-text-centered">
                 <div class="box avg_wait_time">
                   <p class="heading">Avg. Wait</p>
