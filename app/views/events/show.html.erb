@@ -2,8 +2,8 @@
    <div id="view_form_box" class="box">
       <p class="title is-3 has-text-centered is-spaced"><%= @event.name.titleize %></p>
       <p class="subtitle is-5 has-text-centered"><%= @event.simple_start_time %></p>
-      <p class="subtitle is-5 has-text-centered"><%= @event.venue.name.titleize %></p>
-      <p class="subtitle is-5 has-text-centered is-spaced"><%= @event.neighborhood.name.titleize %></p>
+      <p class="subtitle is-5 has-text-centered"><%= link_to  @event.venue.name.titleize, @event.venue %></p>
+      <p class="subtitle is-5 has-text-centered is-spaced"><%= link_to  @event.neighborhood.name.titleize , @event.neighborhood %></p>
       <nav class="level">
          <div class="level-item has-text-centered">
             <div>
