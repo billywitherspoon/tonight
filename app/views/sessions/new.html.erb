@@ -6,6 +6,7 @@
       <% if flash[:error] %>
         <div class="notification">
           <%= flash[:error] %>
+          <p>Would you like to <%= link_to  "create a new user profile?", new_user_path %></p>
         </div>
       <% end %>
       <%= form_tag login_path do %>

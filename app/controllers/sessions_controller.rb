@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     user = user.try(:authenticate, params[:password])
     unless user 
-      flash[:error] = "Invalid Login."
+      flash[:error] = "Incorrect e-mail or password."
       redirect_to new_session_path
     else
       flash[:notice] = "Login successful."
