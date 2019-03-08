@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions 
   resources :check_ins, only: [:new, :create]
-  get '/login', to: 'sessions#new'
+  get '/login', to: 'sessions#new', as: :login
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   post '/user_check_in', to: 'check_ins#new'
   delete '/user_check_out', to: 'check_ins#destroy'
-  get '/', to: 'events#index'
+  get '/', to: 'events#index', as: :home
   #delete '/logout', to: 'sessions#destroy', as: :logout
 end
 
