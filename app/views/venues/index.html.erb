@@ -1,5 +1,20 @@
-<h1>Venues</h1>
-
-<% @venues.each do |venue| %>
-  <p><%= venue.name %></p>
-<% end %>
+<div class="hero">
+    <div class="hero-head">
+      <p class="title has-text-centered">All Venues</p>
+    </div>
+    <div class="hero-body">
+      <% @venues.each do |venue| %>
+        <div class="box">
+          <nav class="level is-outlined">
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Venue</p>
+                <p class="title is-spaced has-text-black"><%= link_to venue.name.titleize, venue %></p>
+                <p class="subtitle">Events: <%= venue.events.count %></p>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <% end %>
+    </div>
+  </div>

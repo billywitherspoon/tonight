@@ -2,28 +2,27 @@
 
 MVP
 
-- A user should be able to see a list of all neighborhoods
-- A user should be able to see all events in a neighborhood
-- A user should be able to see a list of all events
-- A user should be able to see an average rating for a single event 
-- A user should be able to see the number of attendees for a single event
-- A user should be able to see the wait time for a single event 
-- A user should be able to check-in to a single event
-- A user should be able to delete their check-in (check-out)
-- A user should be able to rate an event via check-in
-- A user should be able to report the wait time during their check-in
-- A user should NOT be able to edit/update a event, venue, neighborhood
-- A user should NOT be able to create an event, venue, neighborhood
-- A user should be able to see a list of venues in a neighborhood
-- A user should be able to click on a single venue and list it's events
-- Events on the event page should be default orderd by most attendees
-
-- A user should be able to login with username and password
-- A user should be able to logout
-- A user should be able to return to home on every page
+- `A user should be able to see a list of all neighborhoods`
+- `A user should be able to see all events in a neighborhood`
+- `A user should be able to see a list of all events`
+- `A user should be able to see an average rating for a single event `
+- `A user should be able to see the avg wait time for a single event `
+- `A user should be able to check-in to a single event`
+- `A user should be able to delete their check-in (check-out)`
+- `A user should be able to rate an event via check-in`
+- `A user should be able to report the wait time during their check-in`
+- `A user should NOT be able to edit/update a event, venue, neighborhood`
+- `A user should NOT be able to create an event, venue, neighborhood`
+-` A user should be able to see a list of venues in a neighborhood`
+- `A user should be able to click on a single venue and list it's events`
+- `A user should be able to login with username and password`
+- `A user should be able to logout`
+- `A user should be able to return to home on every page`
 
 Stetch
 
+- Events on the event page should be default orderd by most attendees
+- A user should be able to see the number of attendees for a single event
 - A user should be able to sort events by (number of attendees, rating, starting earliest)
 - A user should be able to see a visualization of popularity of a model by day
 - A user should be able to see all ratings for a single event

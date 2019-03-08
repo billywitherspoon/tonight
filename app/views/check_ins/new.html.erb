@@ -8,9 +8,9 @@
 
       <%= form_for @check_in do |f| %>
       <div class="field">
+         <%= f.label :rating, "How poppin is It?", class: "label" %> 
          <div class="control has-icons-left">
             <div class="select is-primary">
-               <!-- <%= f.label :rating, "Rating: " %> -->
                <%= f.collection_select :rating, @rating_array, :to_s, :to_s %>
             </div>
             <div class="icon is-small is-left"> 
@@ -19,9 +19,9 @@
          </div>
       </div>
       <div class="field">
+         <%= f.label :rating, "How many minutes did you wait in line?", class: "label" %>
             <div class="control has-icons-left">
                <div class="select is-primary">
-                  <!-- <%= f.label :rating, "Rating: " %> -->
                   <%= f.collection_select :wait_time, @wait_time_array, :to_s, :to_s  %>
                   <%= f.hidden_field :user_id, value: @user.id %>
                   <%= f.hidden_field :event_id, value: @event.id %>
