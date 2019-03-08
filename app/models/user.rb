@@ -13,7 +13,7 @@ class User < ApplicationRecord
   end
 
   def last_check_in
-    self.check_ins.last unless self.check_ins.empty?
+    self.check_ins.last
   end
 
   def last_event

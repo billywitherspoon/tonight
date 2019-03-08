@@ -27,19 +27,42 @@ class Event < ApplicationRecord
   def num_users_checked_in
     self.users.count
   end
-  
-  def self.all_sorted_by_rating
-    non_attended_events = self.all.select{|event| event.check_ins.empty?}
-    attended_events = self.all.select{|event| !event.check_ins.empty?}
-    sorted_attended_events = attended_events.sort_by{|event| event.total_avg_rating}.reverse
-    unless non_attended_events.empty?
-      non_attended_events.concat sorted_attended_events
-    else
-      sorted_attended_events
-    end
+
+  def self.sort_events(current_user)
+    @all = Event.all
+    attended_events_sorted = sort_attended_events
+    all_events_sorted = add_non_attended_events(attended_events_sorted)
+    move_user_event_to_beginning(current_user, all_events_sorted)
   end
 
-  private
+ private
+
+ def self.sort_attended_events
+   attended_events = @all.select{|event| !event.check_ins.empty?}
+   attended_events.sort_by{|event| event.total_avg_rating}.reverse
+ end
+ 
+ def self.non_attended_events
+   @all.select{|event| event.check_ins.empty?}
+ end
+
+ 
+ def self.add_non_attended_events(attended_events_sorted)
+    unless non_attended_events.empty?
+       non_attended_events.concat attended_events_sorted
+    else  
+       attended_events_sorted
+    end
+ end
+ 
+ def self.move_user_event_to_beginning(current_user, all_events_sorted)
+ if current_user.checked_in?
+    events = all_events_sorted.reject { |event| event == current_user.last_event}
+    events.unshift(current_user.last_event)
+ else  
+    all_events_sorted
+ end
+ end
 
   def all_wait_times
     self.check_ins.map{|check_in| check_in.wait_time}

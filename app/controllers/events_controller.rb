@@ -3,7 +3,7 @@ class EventsController < ApplicationController
    before_action :logged_in?
    
    def index 
-      @events = Event.all_sorted_by_rating
+      @events = Event.sort_events(@current_user)
    end 
 
    def show 
@@ -19,7 +19,5 @@ class EventsController < ApplicationController
    def event_params 
       params.require(:event).permit(:name, :id)
    end
-   
- 
 
 end
