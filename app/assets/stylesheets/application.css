@@ -16,6 +16,10 @@
 
 @import "bulma";
 
+a {
+  color: black;
+}
+
 /*@media screen {*/
   #fit_contents_below_menu {
     display: flex;
