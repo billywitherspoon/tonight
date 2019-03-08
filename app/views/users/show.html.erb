@@ -25,13 +25,13 @@
           </header>
           <div class="card-content">
             <div class="content">
-              <%= check_in.event.venue.name.titleize %><br />
-              <time datetime="<%= check_in.event.start_time %>"><%= check_in.event.start_time %></time>
+              <p class="content"><%= check_in.event.venue.name.titleize %>, <%= check_in.event.neighborhood.name.titleize %></p>
+              <p class="content">Scheduled: <%= check_in.event.simple_start_time %></p>
             </div>
           </div>
           <footer class="card-footer">
             <% if check_in.active && @user_match %>
-              <%= link_to "Check Out", user_check_out_path(check_in), method: :delete, class: "button card-footer-item is-danger is-outlined"%>
+              <%= link_to "Check Out", user_check_out_path, method: :delete, class: "button card-footer-item is-danger is-outlined"%>
               <% track_active ||= true %>
             <% else %>
               <span class="card-footer-item"><%= "#{' '}" %></span>

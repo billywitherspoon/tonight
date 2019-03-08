@@ -3,7 +3,7 @@ class EventsController < ApplicationController
    before_action :logged_in?
    
    def index 
-      @events = Event.all.sort_by{|event| event.total_avg_rating}
+      @events = Event.all_sorted_by_rating
    end 
 
    def show 

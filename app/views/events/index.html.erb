@@ -56,7 +56,7 @@
         <div class="level-right has-text-centered">
           <div>
             <p class="heading"></p>
-            <p class="button is-light wide_button">You have been checked in</p>
+            <%= link_to "Check Out", user_check_out_path, method: :delete, class: "button card-footer-item is-danger is-outlined wide_button"%>
           </div>
         </div>
         <% end %>
