@@ -1,6 +1,4 @@
-<%  track_active = nil
-
-    if !@user.events.empty?
+<%  if !@user.events.empty?
       heading_message = "Your Check-ins"
     else
       heading_message = "No Check-ins to Display"
@@ -32,8 +30,6 @@
             </div>
           </div>
           <footer class="card-footer">
-            <!-- <%= link_to "Rate", check_in.event, class: "button card-footer-item is-primary is-outlined"%>
-            <%= link_to "Browse", events_path, class: "button card-footer-item is-info is-outlined"%> -->
             <% if check_in.active && @user_match %>
               <%= link_to "Check Out", user_check_out_path(check_in), method: :delete, class: "button card-footer-item is-danger is-outlined"%>
               <% track_active ||= true %>
@@ -43,14 +39,6 @@
           </footer>
         </div>
       <% end %>
-      <%  if track_active
-            more_string = " More "
-          else
-            more_string = ""
-          end
-          upsell_message = "Browse #{more_string} Events"
-      %>
-      <%= link_to upsell_message, events_path, class: "button card-footer-item is-info is-outlined" %>
     </div>
   </div>
 </div>
