@@ -13,7 +13,7 @@
 
 <div id="view_page_container" class="container">
   <div id="view_form_box" class="box">
-    <p class="title">Hello, <%= @user.full_name %></p>
+    <p class="title"><%= @user.full_name %></p>
     <p class="heading"><%= heading_message %></p>
     <div style="overflow-y: auto;">
       <% @user.check_ins.reverse.each do |check_in| %>
