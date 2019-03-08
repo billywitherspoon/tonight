@@ -3,8 +3,10 @@
   <div id="view_form_box" class="box">
     <p class="title">New User Sign Up</p>
     <% if flash[:errors] %>
-      <div class="notification is-warning">
-          <%= flash[:errors] %>
+      <div class="notification">
+        <% flash[:errors].each do |error| %>
+        <%= error %>.  
+        <% end %>
       </div>
     <% end %>
     <%= form_for @user do |f| %>
