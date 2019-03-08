@@ -1,10 +1,15 @@
 <div id="fit_contents_below_menu">
-  <div class="hero" style="width: 80%;">
-    <div class="hero-head">
-      <p>&nbsp;</p>
+  <div class="hero">
+    <div class="hero-head" style="width:100;">
+      <div class="level fixed-sub-element-title has-text-centered">
+        <span class="level-item heading is-size-4 has-text-white"><%= @venue.name %></span>
+      </div>
+      <div class="level fixed-sub-element-details has-text-centered has-text-white">
+        <span class="level-item has-text-white">&nbsp;</span>
+      </div>
     </div>
     <div class="hero-body">
-      <div id="view_form_box" class="box">
+      <!--<div id="view_form_box" class="box">-->
         <% @events.each do |event| %>
           <div class="box">
             <nav class="level is">
@@ -65,5 +70,5 @@
             </nav>
           </div>
           <% end %>
-      </div>
+      <!-- </div> -->
     </div>
